@@ -1,0 +1,382 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* styles for the map*/
+#map {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* styles for the info window*/
+.info-window {
+  max-height: 200px;
+  max-width: 150px;
+  font-size: 9px;
+}
+
+.info-window-title {
+  margin: 0;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.event-img {
+  width: 128px;
+  margin: 0 auto;
+}
+
+.artist,
+.start-time {
+  margin: 5px 0;
+}
+
+
+/* styles for the sidebar*/
+.side-bar {
+	position: absolute;
+	top: 0;
+	background-color: #CCC;
+  opacity: .85;
+	width: 40vw;
+  height: 100%;
+  left: 0;
+  -webkit-transition: left 600ms ease-in-out;
+  transition:         left 600ms ease-in-out;
+}
+
+.search-bar {
+	width: 100%;
+	height: 20px;
+  font-size: 10px;
+}
+
+.search-container {
+  padding: 2px 6px 2px 0;
+}
+
+.venue-list{
+  padding: 5px;
+  border: gray solid 2px;
+  background: white;
+  opacity: .6;
+  height: 48px;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition:  opacity 0.3s ease-in-out;
+}
+
+.venue-list:hover {
+  opacity: 1;
+}
+
+.list-div {
+  height: 100%;
+  overflow: auto;
+}
+
+.list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.venue-name {
+  margin: 0;
+  font-size: 10px;
+}
+
+.list-info {
+  margin: 0;
+  font-size: 8px;
+}
+
+.events {
+  margin: 0;
+  font-size: 8px;
+  display: inline;
+}
+
+.left-swipe-area {
+  position: absolute;
+  width: calc(40vw + 24px);
+  left: -40vw;
+  height: 100vh;
+  -webkit-transition: left 600ms ease-in-out;
+  transition:         left 600ms ease-in-out;
+  top: 0;
+  z-index: 10;
+  overflow: hidden;
+  background-color: #CCC;
+  opacity: .85;
+}
+
+.side-bar-open {
+  left: 0;
+}
+
+.list-button {
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: center;
+  font-size: 20px;
+  -webkit-transition: left 600ms ease-in-out;
+  transition:         left 600ms ease-in-out;
+}
+
+.list-open {
+  left: 40vw;
+}
+
+.swipe-arrow {
+  position: absolute;
+  top: calc(50vh - 10px);
+  right: 0;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  font-size: 20px;
+  text-align: center;
+}
+
+.arrow {
+  position: relative;
+  right: 9px;
+}
+
+/* styles for the user input */
+.title {
+  color: rgb(1, 49, 138);
+  background: rgba(57, 134, 220, 0.80);
+  margin: 0;
+  padding: 0 4px;
+  border: solid rgb(0, 11, 121) 1px;
+}
+
+#datepicker {
+  font-size: 9px;
+}
+
+.title-div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  width: 100px;
+  z-index: 1;
+  font-size: 11px;
+  -webkit-transition: top 600ms ease-in-out;
+  transition:         top 600ms ease-in-out;
+}
+
+.info-window-open {
+  top: calc(100vh - 232px);
+}
+
+.right-swipe-area {
+  position: absolute;
+  width: 24px;
+  right: 0px;
+  height: 80%;
+  -webkit-transition: width 600ms ease-in-out;
+  transition:         width 600ms ease-in-out;
+  top: 0;
+}
+
+.user-input {
+  position: absolute;
+  background: white;
+  width: 175px;
+  right: -175px;
+  top: 0;
+  -webkit-transition: right 600ms ease-in-out;
+  transition:         right 600ms ease-in-out;
+  z-index: 10;
+}
+
+.user-input-open {
+  right: 0px;
+}
+
+.bigger-swipe-area {
+  width: 175px;
+}
+
+.user-input-button {
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #CCC;
+  opacity: .85;
+}
+
+.current {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: white;
+  height: 48px;
+  width: 150px;
+  font-size: 10px;
+}
+
+.currentLocation,
+.currentDate {
+  margin: 0;
+  padding: 0;
+}
+
+.date-selected {
+  font-size: 12px;
+  margin: 0;
+  padding: 0 2px;
+  display: inline;
+}
+
+label {
+  font-size: 11px;
+}
+
+#location {
+  font-size: 10px;
+}
+
+.cancel-submit-div {
+  display: flex;
+  height: 48px;
+  justify-content: space-between;
+}
+
+.cancel,
+.submit {
+  flex-grow: 1;
+}
+
+/* style for footer */
+.bottom-div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/*below css styles eventful branding*/
+.eventful-badge,
+.eventful-badge * {
+  margin: 0             !important;
+  padding: 0            !important;
+  border: 0             !important;
+  text-align: center    !important;
+  color: #CCC           !important;
+  font-family: Arial    !important;
+  text-decoration: none !important;
+  background-color: white;
+}
+
+.eventful-large {
+  position: absolute    !important;
+  width: 140px          !important;
+  font-size: 15px       !important;
+  line-height: 17px     !important;
+  font-weight: bold     !important;
+  bottom: 0       !important;
+  right: 0        !important;
+}
+
+.eventful-medium {
+  position: relative    !important;
+  width: 100px          !important;
+  font-size: 12px       !important;
+  line-height: 13px     !important;
+}
+
+.eventful-small {
+  position: absolute    !important;
+  width: 100px          !important;
+  font-size: 11px       !important;
+  line-height: 11px     !important;
+  left: calc(50vw - 50px);
+  bottom: 0;
+}
+
+/* change cursor for clickable elements */
+.list-button:hover,
+.user-input-button,
+.venue-list:hover,
+.cancel:hover,
+.submit:hover {
+  cursor: pointer;
+}
+
+
+/* styles for larger screens*/
+@media screen and (min-width: 600px) {
+
+  .info-window-open {
+    top: 0;
+  }
+
+  .info-window {
+    max-height: 60vh;
+    max-width: 300px;
+    font-size: 13px;
+  }
+
+  .event-details {
+    padding: 0 10px 0 0;
+  }
+
+  .left-swipe-area {
+    width: 20vw;
+    left: 0;
+  }
+
+  .side-bar {
+    width: 100%;
+  }
+
+  .venue-list {
+    height: 24px;
+  }
+
+  .list-button {
+    display: none;
+  }
+
+  .right-swipe-area {
+    height: 250px;
+  }
+
+  .cancel-submit-div {
+    height: 15px;
+    margin: 0 0 5px 0;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .swipe-text {
+    display: none;
+  }
+
+  .events {
+    font-size: 10px;
+  }
+
+  .venue-name {
+    font-size: 12px;
+  }
+
+  .list-info {
+    margin: 0 0 5px 0;
+  }
+}

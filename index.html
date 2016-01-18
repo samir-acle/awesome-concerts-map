@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-framework="knockoutjs">
+<head>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width, user-scalable=no,
+    initial-scale=1, maximum-scale=1, minimum-scale=1'/>
+	<title>Concert Finder - Find Local Live Music Venues</title>
+	<link rel="stylesheet" href="release/css/style.min.css">
+	<link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+</head>
+<body>
+	<header>
+		<div class='list-button' data-bind='css: {"list-open": sideBar}, click: toggleSideBar'>
+			<div class='hamburger-icon'>&#9776;</div>
+		</div>
+
+		<div class= 'title-div' data-bind='click: openUserInput, css: { "info-window-open": infoOpen}'>
+			<h3 class='title'>Showing concerts near
+				<strong data-bind='text: home_location'></strong> taking place
+				<strong data-bind='text: displayDate'></strong>
+			</h3>
+			<button class='user-input-button'><strong>Click</strong><strong class='swipe-text'> or Swipe &#11013;</strong> to Change Location or Date</button>
+		</div>
+
+	</header>
+
+
+
+	<div id='map'></div>
+
+	<div class='left-swipe-area' data-bind='css: {"side-bar-open": sideBar}'>
+		<div class='side-bar'>
+			<div class='search-container'>
+				<input class='search-bar' data-bind='textInput: filter' placeholder='Search by Keyword'>
+			</div>
+			<div class='list-div'>
+				<ul class='list' data-bind='foreach: locationsList'>
+					<li class='venue-list' data-bind='visible: displayLocation, click: $root.locationClick'>
+						<p data-bind='text: short_name' class='venue-name'></p>
+						<div class='list-info'>
+							<p class='events'>( </p>
+							<p data-bind='text: events().length' class='events'></p>
+							<p class='events'> events listed)</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class='swipe-arrow'>
+			<img class='arrow' data-bind='attr: {src: arrowUrl}'>
+		</div>
+	</div>
+
+	<div class='right-swipe-area' data-bind='css: {"bigger-swipe-area": userInput}'>
+		<div class='user-input' data-bind='css: {"user-input-open": userInput}'>
+			<label for='location'>Location:
+				<input id='location' data-bind='value: home_location' placeholder='location'>
+			</label>
+			<div id='datepicker' data-bind='value: currentDate'></div>
+			<p class='date-selected'>Selected Date: </p>
+			<p class='date-selected' data-bind='text: selectedDate'></p>
+			<div class='cancel-submit-div'>
+				<button class='cancel' data-bind='click: closeUserInput'>Cancel</button>
+				<button class='submit' data-bind='click: submitNew'>Submit</button>
+			</div>
+		</div>
+	</div>
+
+
+
+	<footer>
+		<div class='bottom-div'>
+			<div class="eventful-badge eventful-small">
+			  <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
+			    alt="Local Events, Concerts, Tickets">
+			  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/knockout/dist/knockout.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script src="bower_components/moment/min/moment.min.js"></script>
+	<script src="bower_components/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+	<script src="release/js/app.min.js"></script>
+	<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwD3rUfgk36hyTcvtBmLXG2DfUJEzeYQs&callback=vm.initMap">
+	</script>
+</body>
+</html>
