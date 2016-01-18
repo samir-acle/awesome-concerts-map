@@ -15,12 +15,6 @@
  */
 
 "use strict";
-//TODO: add searchbox map?
-
-//TODO: readme file
-//TODO: minify files, check pagespeed insights
-//TODO: check error handling
-
 
 /** Error handling for google maps
  * Timeout cleared once initMap called
@@ -91,7 +85,7 @@ var ViewModel = function() {
         }, 12000);
 
         var ajax = $.ajax({
-                url: 'http://localhost:3000/concerts',
+                url: 'https://awesome-concerts-map.herokuapp.com/concerts',
                 type: 'GET',
                 dataType: 'json',
                 data: options
